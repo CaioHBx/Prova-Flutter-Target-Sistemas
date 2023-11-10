@@ -13,7 +13,8 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    final bool logado = CacheService.instance.prefs.getBool('logado') ?? false;
+    final bool isLogado =
+        CacheService.instance.prefs.getBool('logado') ?? false;
     return MaterialApp(
       title: 'Prova Flutter Target Sistemas',
       debugShowCheckedModeBanner: false,
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.greenAccent),
         useMaterial3: true,
       ),
-      home: logado ? const HomePage() : LoginPage(),
+      home: isLogado ? const HomePage() : LoginPage(),
     );
   }
 }
